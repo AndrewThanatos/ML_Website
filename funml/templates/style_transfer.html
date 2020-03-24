@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="conteiner">
+    <form method="POST" action="", enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">ST_Generator</legend>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                        {{ form.style_picture.label() }}
+                        {{ form.style_picture(class="form-control-file") }}
+                        {% if form.style_picture.errors %}
+                            {% for error in form.style_picture.errors %}
+                                <span class="text-danger">{{ error }}</span></br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.content_picture.label() }}
+                        {{ form.content_picture(class="form-control-file") }}
+                        {% if form.content_picture.errors %}
+                            {% for error in form.content_picture.errors %}
+                                <span class="text-danger">{{ error }}</span></br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+        
+    </form>
+</div>
+{% endblock content %}
+    
